@@ -27,7 +27,6 @@ func ScanStructInfo(s interface{}, name string) entity.StructInfo {
 			nextField := typ.Field(i + 1)
 
 			fieldValue := val.Field(i)
-
 			fieldSize := int32(fieldValue.Type().Size())
 			fieldOffset := int32(field.Offset)
 			fieldPadding := int32(nextField.Offset) - fieldOffset - fieldSize
@@ -70,6 +69,8 @@ func getTypeName(t reflect.Type) string {
 		return "[]" + getTypeName(t.Elem())
 	case reflect.Pointer:
 		return "*" + getTypeName(t.Elem())
+	case reflect.Map:
+		return "map[" + getTypeName(t.Key()) + "]" + getTypeName(t.Elem())
 	default:
 		return t.Name()
 	}

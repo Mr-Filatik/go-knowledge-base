@@ -175,6 +175,48 @@ func TestScanStructInfo_SliceStruct(t *testing.T) {
 	assert.Equal(t, expected, result)
 }
 
+type mapStruct struct {
+	Field1 int64
+	Field2 map[string]int32
+	Field3 int32
+}
+
+func TestScanStructInfo_MapStruct(t *testing.T) {
+	testInstance := mapStruct{}
+	result := ScanStructInfo(testInstance, "TestScanStructInfo_MapStruct")
+
+	expected := entity.StructInfo{
+		StructName:  "TestScanStructInfo_MapStruct",
+		StructType:  "mapStruct",
+		StructSize:  24,
+		StructAlign: 8,
+		FieldInfos: []entity.FieldInfo{
+			{
+				FieldName:    "Field1",
+				FieldType:    "int64",
+				FieldOffset:  0,
+				FieldSize:    8,
+				FieldPadding: 0,
+			},
+			{
+				FieldName:    "Field2",
+				FieldType:    "map[string]int32",
+				FieldOffset:  8,
+				FieldSize:    8,
+				FieldPadding: 0,
+			},
+			{
+				FieldName:    "Field3",
+				FieldType:    "int32",
+				FieldOffset:  16,
+				FieldSize:    4,
+				FieldPadding: 4,
+			},
+		},
+	}
+	assert.Equal(t, expected, result)
+}
+
 type nestedInnerStruct struct {
 	InnerField1 int8
 	InnerField2 int32
