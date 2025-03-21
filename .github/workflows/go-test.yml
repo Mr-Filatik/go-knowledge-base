@@ -2,9 +2,9 @@ name: Go Test
 
 on:
   push:
-    branches: [ "**" ]
+    branches: [ "**", "!main", "!work" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "work" ]
 
 jobs:
 
