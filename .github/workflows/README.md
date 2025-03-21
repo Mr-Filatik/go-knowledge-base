@@ -21,6 +21,14 @@ For some reason (should work without it) the check was running on a branch other
 if: github.event.pull_request.base.ref == 'main'
 ```
 
+## Go Build
+
+So far it's not working the way I'd like it to, it launches 2 jobs at a time on both push and pull request.
+
+## Go Test
+
+So far it's not working the way I'd like it to, it launches 2 jobs at a time on both push and pull request.
+
 # How to use
 
 Additional useful data:
