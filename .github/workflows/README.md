@@ -28,8 +28,8 @@ Additional useful data:
 ## How to set a merge limit in GitHub
 
 To disallow merge on failing tests, you need to create a rule in GitHub. How to do it:
-1. Go to `Settings` -> `Branches` -> `Add branch ruleset` (или `Settings` -> `Rules` -> `Rulesets` -> `New ruleset` -> `New branch ruleset`);
-2. Заполнить `Ruleset Name`;
+1. Go to `Settings` -> `Branches` -> `Add branch ruleset` (or `Settings` -> `Rules` -> `Rulesets` -> `New ruleset` -> `New branch ruleset`);
+2. Specify `Ruleset Name`;
 3. Select `Targets`;
 4. Select an item `Require status checks to pass`;
 5. Add the necessary checks through `Add checks`.
