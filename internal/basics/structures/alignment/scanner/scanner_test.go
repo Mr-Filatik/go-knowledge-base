@@ -74,7 +74,7 @@ func TestScanStructInfo_PointerStruct(t *testing.T) {
 			},
 			{
 				FieldName:    "Field2",
-				FieldType:    "",
+				FieldType:    "*int",
 				FieldOffset:  8,
 				FieldSize:    8,
 				FieldPadding: 0,
@@ -109,7 +109,7 @@ func TestScanStructInfo_ArrayStruct(t *testing.T) {
 		FieldInfos: []entity.FieldInfo{
 			{
 				FieldName:    "Field1",
-				FieldType:    "",
+				FieldType:    "[3]int16",
 				FieldOffset:  0,
 				FieldSize:    6,
 				FieldPadding: 2,
@@ -151,7 +151,7 @@ func TestScanStructInfo_SliceStruct(t *testing.T) {
 		FieldInfos: []entity.FieldInfo{
 			{
 				FieldName:    "Field1",
-				FieldType:    "",
+				FieldType:    "[]int32",
 				FieldOffset:  0,
 				FieldSize:    24,
 				FieldPadding: 0,

@@ -2,6 +2,7 @@ package scanner
 
 import (
 	"reflect"
+	"strconv"
 	"unsafe"
 
 	"github.com/Mr-Filatik/go-knowledge-base/internal/basics/structures/alignment/entity"
@@ -33,7 +34,7 @@ func ScanStructInfo(s interface{}, name string) entity.StructInfo {
 
 			fi := entity.FieldInfo{
 				FieldName:    field.Name,
-				FieldType:    field.Type.Name(),
+				FieldType:    getTypeName(field.Type),
 				FieldSize:    fieldSize,
 				FieldOffset:  fieldOffset,
 				FieldPadding: fieldPadding,
@@ -50,7 +51,7 @@ func ScanStructInfo(s interface{}, name string) entity.StructInfo {
 
 		fi := entity.FieldInfo{
 			FieldName:    field.Name,
-			FieldType:    field.Type.Name(),
+			FieldType:    getTypeName(field.Type),
 			FieldSize:    fieldSize,
 			FieldOffset:  fieldOffset,
 			FieldPadding: fieldPadding,
@@ -59,4 +60,17 @@ func ScanStructInfo(s interface{}, name string) entity.StructInfo {
 		si.FieldInfos = append(si.FieldInfos, fi)
 	}
 	return si
+}
+
+func getTypeName(t reflect.Type) string {
+	switch t.Kind() {
+	case reflect.Array:
+		return "[" + strconv.Itoa(t.Len()) + "]" + getTypeName(t.Elem())
+	case reflect.Slice:
+		return "[]" + getTypeName(t.Elem())
+	case reflect.Pointer:
+		return "*" + getTypeName(t.Elem())
+	default:
+		return t.Name()
+	}
 }
