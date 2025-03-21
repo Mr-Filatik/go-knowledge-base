@@ -6,24 +6,17 @@ import (
 )
 
 type MyStruct struct {
-	aaa  int8
-	aaa2 int8
-	ccc  int16
-	ddd  int32
-	bbb  int64
-	ggg  int16
+	Field1 int8
+	Field2 int8
+	Field3 int16
+	Field4 int32
+	Field5 int64
+	Field6 int16
 }
 
 func main() {
-	ms := MyStruct{
-		aaa:  1,
-		bbb:  2,
-		ccc:  3,
-		ddd:  4,
-		aaa2: 5,
-		ggg:  6,
-	}
+	ms := MyStruct{}
 
-	scan := scanner.ScanStructInfo(ms, "example one")
+	scan := scanner.ScanStructInfo(ms, "Scan My Struct")
 	printer.PrintStructInfo(scan)
 }
