@@ -38,6 +38,14 @@ Additional useful data:
 To disallow merge on failing tests, you need to create a rule in GitHub. How to do it:
 1. Go to `Settings` -> `Branches` -> `Add branch ruleset` (or `Settings` -> `Rules` -> `Rulesets` -> `New ruleset` -> `New branch ruleset`);
 2. Specify `Ruleset Name`;
-3. Select `Targets`;
+3. Select `Targets` branch;
 4. Select an item `Require status checks to pass`;
 5. Add the necessary checks through `Add checks`.
+
+## Prohibit direct push commits to the main branch
+
+To disallow merge on failing tests, you need to create a rule in GitHub. How to do it:
+1. Go to `Settings` -> `Branches` -> `Add branch ruleset` (or `Settings` -> `Rules` -> `Rulesets` -> `New ruleset` -> `New branch ruleset`);
+2. Specify `Ruleset Name`;
+3. Select `Targets` branch;
+4. Select an item `Restrict updates`. This will restrict the ability to update (do push) the `main` branch except for users with special permissions (for example, administrators with the `Bypass branch protections` role).
