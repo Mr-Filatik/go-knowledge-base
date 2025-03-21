@@ -1,0 +1,17 @@
+name: Check Merge Source
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-merge-source:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if merge is from 'work' branch
+        run: |
+          if [ "${{ github.event.pull_request.head.ref }}" != "work" ]; then
+            echo "Merge is not allowed from branch other than 'work'."
+            exit 1
+          fi
