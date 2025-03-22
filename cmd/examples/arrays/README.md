@@ -2,9 +2,11 @@
 
 Basic rules for working with arrays:
 
-- If you do not specify explicit values ??for array elements, all elements are initialized with the default value for the type (for example: 0 for int, etc.);
+- An array contains the values ​​of the array, not a reference to the first element of the array;
+- The length of an array in Go is part of its type;
+- If you do not specify explicit values for array elements, all elements are initialized with the default value for the type (for example: 0 for int, etc.);
 - Array element indexing starts with the 0th element;
-- Array element values ??can be changed by accessing them by index;
+- Array element values can be changed by accessing them by index;
 - Arrays are copied and assigned by value, not by reference;
 - Arrays can only be compared if they have the same type and length.
 
