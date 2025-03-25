@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/Mr-Filatik/go-knowledge-base/internal/basics/slices/modifier"
+	"github.com/Mr-Filatik/go-knowledge-base/internal/basics/slices/reference-transfer/modifier"
 )
 
 func main() {
